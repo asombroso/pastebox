@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show paste</title>
+</head>
+<body>
+<a href="/main">Main page</a><br>
+<div  th:text="${paste.getData()}"></div>
+<div th:if="${#request.getUserPrincipal() != null &&  paste.getUserCredentials() !=null &&
+              paste.getUserCredentials().getUsername() == #authentication.getName()}">
+    <form th:method="DELETE" th:action="@{/show/{id}(id = ${paste.getId()})}">
+        <input type="submit" value="Delete"/>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    </form>
+</div>
+</body>
+</html>

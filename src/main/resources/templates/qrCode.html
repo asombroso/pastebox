@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code</title>
+</head>
+<body>
+<a href="/main">Main page</a><br>
+<img class="code" th:src="${qrCode}"/><br>
+Your secret code is:<p th:text="${qrCodeKey}"></p> Please save it in a save location.<br>
+<h4>Confirmation code has been sent to your email. Click the link to activate your account.</h4>
+</body>
+</html>

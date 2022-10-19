@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+<a href="/login">Log in</a><br>
+<a href="/register">Register</a><br>
+<a href="/personal">Personal Page</a><br>
+<h1>Paste whatever you want</h1>
+<h4>Max size is 20000 symbols.</h4>
+<form th:action="@{/main}" method="post" th:object="${pasteBox}" th:name="${pasteBox}">
+    <label for="data"></label><br>
+    <p>Text: <textarea rows="20" cols="200" th:field="*{data}" id="data" ></textarea></p>
+    <div style="color:red" th:if="${#fields.hasErrors('data')}" th:errors="*{data}">Paste Error</div><br>
+    <fieldset>
+        <legend>Public or private</legend>
+        <div>
+            <input type="radio" id="public" name="status" value="PUBLIC" checked="checked" />
+            <label for="public">Public </label>
+            <input type="radio" id="private" name="status" value="PRIVATE" />
+            <label for="private">Private (Please login to upload using a private mode.)</label>
+            <h4>Anonymous pastes can't be deleted!</h4>
+        </div>
+    </fieldset>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+</body>
+</html>

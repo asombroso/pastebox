@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Login page</title>
+  <link rel="stylesheet" type="text/css"  th:href="@{/style.css}"/>
+</head>
+<body>
+<a href="/register" class="link"> Don't have an account? Register!</a>&nbsp;&nbsp;&nbsp;
+<form action="/login"  method="post" class="forms">
+  <label for="username">Enter name: </label><br>
+  <input type="text" name="username" id="username"/><br>
+  <label for="password">Enter password: </label><br/>
+  <input type="password" name="password" id="password"/><br>
+  <label for="token">Enter two-factor passcode: </label><br/>
+  <input type="password" name="token" id="token"/><br>
+  <label for="remember">Remember me? </label>
+  <input type="checkbox"  id="remember" name="remember-me" value="true"/><br>
+  <button type="submit">Submit</button><br>
+  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+</form>
+</body>
+</html>

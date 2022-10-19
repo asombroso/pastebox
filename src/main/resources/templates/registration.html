@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration page</title>
+    <link rel="stylesheet" type="text/css"  th:href="@{/style.css}"/>
+</head>
+<body>
+<form th:action="@{/register}" th:object="${user}" method="post"><br>
+    <label for="username">Enter e-mail: </label><br>
+    <input type="text" th:field="*{username}" id="username"/><br>
+    <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</div><br>
+    <label for="password">Enter password: </label><br>
+    <input type="password" th:field="*{password}" id="password"/><br>
+    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div><br>
+    <label for="mfa">Enable 2fa?</label><br>
+    <input type="checkbox" id="mfa" name="mfa" value="enabled" /><br>
+    <button type="submit">Register</button>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <div>Password must be at least 9 characters long, be of mixed case and also contain a digit and a symbol. </div>
+</form>
+</body>
+</html>

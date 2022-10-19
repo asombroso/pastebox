@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Info page</title>
+</head>
+<body>
+<div> <a th:href="@{/main}">Back to the main page</a> </div>
+Your paste is successfully saved. Please save this url to share with other people.
+<div>Your URL is: </div>  <div  th:text="${showHash}"></div>
+</body>
+</html>

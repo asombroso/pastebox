@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal page</title>
+</head>
+<body>
+<a href="/main">Main page</a><br>
+<a href="/logout">Log out</a>
+<br>
+<div th:each="pasteList : ${list}"><br>
+    <a th:href="@{/show/{id}(id = ${pasteList.getId()})}" th:text="${pasteList.getData()}">pasteName</a>
+</div>
+</body>
+</html>
